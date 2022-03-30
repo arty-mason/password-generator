@@ -1,0 +1,1 @@
+export { usePassGen } from './pass-gen';

@@ -1,28 +1,21 @@
 import "./App.css";
-import { useState } from "react";
+import { Background } from "./background"
+import { Heading } from './heading';
+import { Wrapper } from './wrapper';
+import { usePassGen } from "./services";
 
 const App = () => {
-  const [password, setPassword] = useState("**********************");
-  //Add UseState to use the event handler "onClick" later on
-  const generatePassword = () => {
-    // Create a random password
-    const randomPassword =
-      Math.random().toString(36).slice(2) + Math.random().toString(36).slice(2);
-    // Set the generated password as state
-    setPassword(randomPassword);
-    // Copy the password to the clipboard
-    navigator.clipboard.writeText(randomPassword);
-  };
+  const passGen = usePassGen();
   return (
-    <div className="background">
-      <h1 className="heading">Generate a random password</h1>
-      <div className="wrapper">
-        <div className="password">{password}</div>
-        <button className="generatePassword" onClick={generatePassword}>
+    <Background>
+      <Heading />
+      <Wrapper>
+        <div className="password">{passGen.password}</div>
+        <button className="generatePassword" onClick={passGen.generatePassword}>
           Generate password
         </button>
-      </div>
-    </div>
+      </Wrapper>
+    </Background >
   )
 };
 

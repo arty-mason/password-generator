@@ -1,0 +1,2 @@
+//1. The passgen should have 2 checkboxes: 1 for using letters and 2 for using symbols;
+//2. Make radio buttons. allowing to choose either: a) 8, b) 12 or c)16 symbols in the password (password length);
